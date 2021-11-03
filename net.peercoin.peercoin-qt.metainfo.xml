@@ -7,8 +7,9 @@
   <summary>Peercoin, a green crypto for sustainable future.</summary>
   <description>
     <p>
-      Peercoin is an proof-of-stake cryptocurrency launched in August 2012. Like Bitcoin and Litecoin 
+      Peercoin is an proof-of-stake cryptocurrency launched in August 2012. Like Bitcoin 
       Peercoin stores value and can be sent over the internet without any central authority.
+      Owning Peercoins allows for participation in the proof-of-stake consensus, making it possible to create new blocks and be rewarded for it.
     </p>
   </description>
   <launchable type="desktop-id">net.peercoin.peercoin-qt.desktop</launchable>]
@@ -23,6 +24,7 @@
   <update_contact>foundation@peercoin.net</update_contact>
   <content_rating type="oars-1.1" />
   <releases>
+    <release date="2021-11-03" version="0.11.1" /> 
     <release date="2021-10-13" version="0.11.0" /> 
 	<release date="2021-08-08" version="0.10.4" /> 
     </releases>
