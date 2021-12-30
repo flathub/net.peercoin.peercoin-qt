@@ -24,6 +24,7 @@
   <update_contact>foundation@peercoin.net</update_contact>
   <content_rating type="oars-1.1" />
   <releases>
+    <release date="2021-12-30" version="0.11.3" />
     <release date="2021-12-09" version="0.11.2" />	  
     <release date="2021-11-03" version="0.11.1" /> 
     <release date="2021-10-13" version="0.11.0" /> 
