@@ -27,14 +27,14 @@
         {
           "type": "archive",
           "only-arches": ["x86_64"],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.11.7ppc/peercoin-0.11.7-x86_64-linux-gnu.tar.gz",
-          "sha256": "f3968780ac2506fff41d4ec7a3391c9af423f3f65275bbaa3763f88755147c8a"
+          "url": "https://github.com/peercoin/peercoin/releases/download/v0.11.8ppc/peercoin-0.11.8-x86_64-linux-gnu.tar.gz",
+          "sha256": "7e25301d402e2d70b3285e6784439e0527757393fdbbd21d3518088e10281f14"
         },
         {
           "type": "archive",
           "only-arches": ["aarch64"],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.11.4ppc/peercoin-0.11.4-aarch64-linux-gnu.tar.gz",
-          "sha256": "1125d575534b512a3ef1a5cbceda67f7ba21f96245c0bde2a056b057df0f3661"
+          "url": "https://github.com/peercoin/peercoin/releases/download/v0.11.8ppc/peercoin-0.11.8-aarch64-linux-gnu.tar.gz",
+          "sha256": "1f08619773e33ec531224f2cf2dea4e48ab257da6efa35d4703ad9afa48789ae"
         }
       ]
     },
@@ -60,7 +60,7 @@
         },
         {
           "type": "file",
-          "url": "https://raw.githubusercontent.com/peercoin/media/master/Peercoin%202020%20Logo%20Files/01.%20Icon%20Only/Inside%20Circle/Transparent/Green%20Icon/peercoin-icon-green-transparent.svg",
+          "url": "https://raw.githubusercontent.com/peercoin/media/master/Peercoin%202021%20Logo%20Files/01.%20Leaf%20Logo%20Only/Inside%20Circle/peercoin-icon-green-transparent.svg",
           "sha256": "999abd7c0e139918f84ca14de1f35a84452fb23c490a695fdde09e9aa8b87f6f"
         },
         {
