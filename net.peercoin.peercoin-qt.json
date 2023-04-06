@@ -29,16 +29,16 @@
           "only-arches": [
             "x86_64"
           ],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.12.2ppc/peercoin-0.12.2ppc-x86_64-linux-gnu.tar.gz",
-          "sha256": "ace7fe95d195107654fca02f6c8a09e981fb429109e941247dad47f8accdfee5"
+          "url": "https://github.com/peercoin/peercoin/releases/download/v0.12.3ppc/peercoin-0.12.3ppc-x86_64-linux-gnu.tar.gz",
+          "sha256": "c48891a5fa65a33449b38bd3a4140affe6c846abedfc5b844f6fc96d538b76d6"
         },
         {
           "type": "archive",
           "only-arches": [
             "aarch64"
           ],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.12.2ppc/peercoin-0.12.2ppc-aarch64-linux-gnu.tar.gz",
-          "sha256": "0703422d1182a906983414b133adf84c412979895b5337c5856c81316b0f39da"
+          "url": "https://github.com/peercoin/peercoin/releases/download/v0.12.3ppc/peercoin-0.12.3ppc-aarch64-linux-gnu.tar.gz",
+          "sha256": "f131c97345d4921d7a012fe364ad14bd60a77d7606fa7bdfbb1fcdd2daa1344f"
         }
       ]
     },
