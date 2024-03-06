@@ -2,7 +2,7 @@
   "id": "net.peercoin.peercoin-qt",
   "runtime": "org.freedesktop.Platform",
   "sdk": "org.freedesktop.Sdk",
-  "runtime-version": "22.08",
+  "runtime-version": "23.08",
   "command": "peercoin-qt",
   "finish-args": [
     /* Wayland and Xorg support */
@@ -29,16 +29,16 @@
           "only-arches": [
             "x86_64"
           ],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.12.7ppc/peercoin-0.12.7ppc-x86_64-linux-gnu.tar.gz",
-          "sha256": "0cb0d3bdaa2ffec4877b00fae1af4f3710e00f7c69034063e96ff6959958559e"
+          "url": "https://github.com/peercoin/peercoin/releases/download/v0.13.0ppc/peercoin-5ad0074dbab7-x86_64-linux-gnu.tar.gz",
+          "sha256": "4f79f8bdf4d720bf202c1eebbcf1229747a2e18db2750bae7d2cc70b1da4c596"
         },
         {
           "type": "archive",
           "only-arches": [
             "aarch64"
           ],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.12.7ppc/peercoin-0.12.7ppc-aarch64-linux-gnu.tar.gz",
-          "sha256": "0fa26554dcfc75d5029e39580c71ead21b9ff629a3a261a4ce8e71da609f0098"
+          "url": "https://github.com/peercoin/peercoin/releases/download/v0.13.0ppc/peercoin-5ad0074dbab7-aarch64-linux-gnu.tar.gz",
+          "sha256": "675233061f3727324d9317185312e7346fac8c8cb0ca6270f3dc2d498cdca97c"
         }
       ]
     },
