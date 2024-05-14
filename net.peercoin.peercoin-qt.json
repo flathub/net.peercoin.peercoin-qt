@@ -56,7 +56,7 @@
         {
           "type": "file",
           "url": "https://raw.githubusercontent.com/peercoin/packaging/master/debian/peercoin-qt.desktop",
-          "sha256": "252d89470daf7c9a2628d03a8cbd9b58a377f91c87a4c18fbc760048ba1ba113"
+          "sha256": "5f2e3f2ba219ed7efc85e547c8ce1c1f703dffa2411aa2c7c0cebe68e90a4143"
         },
         {
           "type": "file",
