@@ -48,7 +48,7 @@
       "build-commands": [
         "install -Dp -m 644 peercoin-icon-green-transparent.svg /app/share/icons/hicolor/scalable/apps/net.peercoin.peercoin-qt.svg",
         "install -Dp -m 644 peercoin-qt.desktop /app/share/applications/net.peercoin.peercoin-qt.desktop",
-        "desktop-file-edit --set-key=Icon --set-value=net.peercoin.peercoin-qt.svg /app/share/applications/net.peercoin.peercoin-qt.desktop",
+        "desktop-file-edit --set-icon=net.peercoin.peercoin-qt.svg /app/share/applications/net.peercoin.peercoin-qt.desktop",
         "install -Dp -m 644 net.peercoin.peercoin-qt.metainfo.xml /app/share/metainfo/net.peercoin.peercoin-qt.metainfo.xml",
         "bash install_wrapper.sh"
       ],
