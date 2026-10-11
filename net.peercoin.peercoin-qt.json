@@ -98,7 +98,6 @@
         {
           "type": "git",
           "url": "https://github.com/peerchemist/peercoin.git",
-          "branch": "build-fix",
           "commit": "023643d166b27a45117d63e06b07bff6820332b9"
         },
         {
