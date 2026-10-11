@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Peercoin
+Comment=Send and receive Peercoin
+Exec=peercoin-qt %u
+Icon=net.peercoin.peercoin-qt
+Terminal=false
+StartupNotify=true
+MimeType=x-scheme-handler/peercoin;
+Categories=Office;Finance;Qt;
+Keywords=peercoin;cryptocurrency;wallet;blockchain;
