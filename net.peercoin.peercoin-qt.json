@@ -98,7 +98,7 @@
         {
           "type": "git",
           "url": "https://github.com/peerchemist/peercoin.git",
-          "commit": "023643d166b27a45117d63e06b07bff6820332b9"
+          "commit": "0c97e7e32f4ed0ee043191924eb2c43c2d2dd123"
         },
         {
           "type": "file",
