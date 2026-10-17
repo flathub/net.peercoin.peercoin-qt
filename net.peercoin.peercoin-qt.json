@@ -1,75 +1,116 @@
 {
   "id": "net.peercoin.peercoin-qt",
-  "runtime": "org.freedesktop.Platform",
-  "sdk": "org.freedesktop.Sdk",
-  "runtime-version": "25.08",
+  "runtime": "org.kde.Platform",
+  "runtime-version": "6.11",
+  "sdk": "org.kde.Sdk",
   "command": "peercoin-qt",
   "finish-args": [
-    /* Wayland and Xorg support */
-    "--socket=x11",
-    /* Sound */
-    "--socket=pulseaudio",
-    /* OpenGL access. */
-    "--device=dri",
-    /* IPC access. */
     "--share=ipc",
-    /* Network acess. */
-    "--share=network"
+    "--share=network",
+    "--socket=wayland",
+    "--socket=fallback-x11",
+    "--device=dri",
+    "--talk-name=org.freedesktop.Notifications",
+    "--talk-name=org.kde.StatusNotifierWatcher"
+  ],
+  "cleanup": [
+    "/include",
+    "/lib/cmake",
+    "/lib/pkgconfig",
+    "/share/aclocal",
+    "/share/doc",
+    "/share/man",
+    "*.a",
+    "*.la"
   ],
   "modules": [
     {
-      "name": "peercoin",
-      "buildsystem": "simple",
-      "build-commands": [
-        "install -m 0744 -D -t /app/bin/internal bin/peercoin-qt"
+      "name": "boost",
+      "buildsystem": "cmake-ninja",
+      "builddir": true,
+      "config-opts": [
+        "-DBOOST_INCLUDE_LIBRARIES=multi_index;signals2",
+        "-DBOOST_ENABLE_MPI=OFF",
+        "-DBOOST_ENABLE_PYTHON=OFF",
+        "-DBOOST_INSTALL_LAYOUT=system",
+        "-DBUILD_TESTING=OFF"
       ],
       "sources": [
         {
           "type": "archive",
-          "only-arches": [
-            "x86_64"
-          ],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.15.1ppc/peercoin-1af7509666a7-x86_64-linux-gnu.tar.gz",
-          "sha256": "67f5412d2a9eb130c5b0bfc6f057266d931c74d53b969891297eae83b2cc439f"
-        },
-        {
-          "type": "archive",
-          "only-arches": [
-            "aarch64"
-          ],
-          "url": "https://github.com/peercoin/peercoin/releases/download/v0.15.1ppc/peercoin-1af7509666a7-aarch64-linux-gnu.tar.gz",
-          "sha256": "294ce664783c4903a6182ec54886d9df9cbe2ddcdeb93f5cf506f3901d549088"
+          "url": "https://github.com/boostorg/boost/releases/download/boost-1.90.0/boost-1.90.0-cmake.tar.gz",
+          "sha256": "913ca43d49e93d1b158c9862009add1518a4c665e7853b349a6492d158b036d4"
         }
       ]
     },
     {
-      "name": "misc",
-      "buildsystem": "simple",
-      "build-commands": [
-        "install -Dp -m 644 peercoin-icon-green-transparent.svg /app/share/icons/hicolor/scalable/apps/net.peercoin.peercoin-qt.svg",
-        "install -Dp -m 644 peercoin-qt.desktop /app/share/applications/net.peercoin.peercoin-qt.desktop",
-        "desktop-file-edit --set-icon=net.peercoin.peercoin-qt.svg /app/share/applications/net.peercoin.peercoin-qt.desktop",
-        "install -Dp -m 644 net.peercoin.peercoin-qt.metainfo.xml /app/share/metainfo/net.peercoin.peercoin-qt.metainfo.xml",
-        "bash install_wrapper.sh"
+      "name": "libevent",
+      "buildsystem": "cmake-ninja",
+      "builddir": true,
+      "config-opts": [
+        "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+        "-DEVENT__DISABLE_BENCHMARK=ON",
+        "-DEVENT__DISABLE_OPENSSL=ON",
+        "-DEVENT__DISABLE_REGRESS=ON",
+        "-DEVENT__DISABLE_SAMPLES=ON",
+        "-DEVENT__DISABLE_TESTS=ON",
+        "-DEVENT__LIBRARY_TYPE=SHARED"
       ],
       "sources": [
         {
+          "type": "archive",
+          "url": "https://github.com/libevent/libevent/releases/download/release-2.1.13-stable/libevent-2.1.13-stable.tar.gz",
+          "sha256": "f7e9383b8c0baa81b687e5b5eecc01beefaf1b19b64151d95ed61647fe7a315c"
+        }
+      ]
+    },
+    {
+      "name": "peercoin",
+      "buildsystem": "cmake-ninja",
+      "builddir": true,
+      "config-opts": [
+        "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+        "-DBUILD_BITCOIN_BIN=OFF",
+        "-DBUILD_GUI=ON",
+        "-DBUILD_DAEMON=OFF",
+        "-DBUILD_CLI=OFF",
+        "-DBUILD_TESTS=OFF",
+        "-DBUILD_TX=OFF",
+        "-DBUILD_UTIL=OFF",
+        "-DBUILD_BENCH=OFF",
+        "-DENABLE_IPC=OFF",
+        "-DWITH_ZMQ=OFF",
+        "-DWITH_USDT=OFF",
+        "-DWITH_QRENCODE=ON",
+        "-DWITH_DBUS=ON",
+        "-DWITH_CCACHE=OFF",
+        "-DINSTALL_MAN=OFF"
+      ],
+      "post-install": [
+        "install -d /app/libexec",
+        "mv /app/bin/peercoin-qt /app/libexec/peercoin-qt",
+        "install -Dm755 ${FLATPAK_BUILDER_BUILDDIR}/peercoin-qt-wrapper /app/bin/peercoin-qt",
+        "install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/net.peercoin.peercoin-qt.desktop /app/share/applications/net.peercoin.peercoin-qt.desktop",
+        "install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/net.peercoin.peercoin-qt.metainfo.xml /app/share/metainfo/net.peercoin.peercoin-qt.metainfo.xml",
+        "install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/src/qt/res/src/bitcoin.svg /app/share/icons/hicolor/scalable/apps/net.peercoin.peercoin-qt.svg"
+      ],
+      "sources": [
+        {
+          "type": "git",
+          "url": "https://github.com/peerchemist/peercoin.git",
+          "commit": "4e10237cf189c27b3b2c21b22901cc1385c40c20"
+        },
+        {
           "type": "file",
-          "url": "https://raw.githubusercontent.com/peercoin/packaging/master/debian/peercoin-qt.desktop",
-          "sha256": "5f2e3f2ba219ed7efc85e547c8ce1c1f703dffa2411aa2c7c0cebe68e90a4143"
+          "path": "peercoin-qt-wrapper"
+        },
+        {
+          "type": "file",
+          "path": "net.peercoin.peercoin-qt.desktop"
         },
         {
           "type": "file",
           "path": "net.peercoin.peercoin-qt.metainfo.xml"
-        },
-        {
-          "type": "file",
-          "url": "https://raw.githubusercontent.com/peercoin/media/master/Peercoin%202021%20Logo%20Files/01.%20Leaf%20Logo%20Only/Inside%20Circle/peercoin-icon-green-transparent.svg",
-          "sha256": "999abd7c0e139918f84ca14de1f35a84452fb23c490a695fdde09e9aa8b87f6f"
-        },
-        {
-          "type": "file",
-          "path": "install_wrapper.sh"
         }
       ]
     }
